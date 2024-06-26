@@ -1,0 +1,35 @@
+package com.example.demo.repository;
+
+import java.util.List;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import com.example.demo.entity.Doctor;
+
+import jakarta.persistence.PersistenceContext;
+
+@Repository
+public abstract class DoctorRepository1 {
+	@Autowired
+    private SessionFactory sessionFactory;
+	
+	
+
+
+	public List<Doctor> findDoctorsByCityAndSpeciality(String city, String speciality) {
+		Session session = sessionFactory.openSession();
+		String sql = "SELECT * FROM doctor WHERE city = :city AND speciality = :speciality";
+        List<Doctor> doctors = session.createNativeQuery(sql, Doctor.class)
+                                      .setParameter("city", city)
+                                      .setParameter("speciality", speciality)
+                                      .getResultList();
+        return doctors;
+	}
+	
+	
+	}
+

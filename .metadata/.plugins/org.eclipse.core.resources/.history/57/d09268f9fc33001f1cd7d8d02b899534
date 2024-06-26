@@ -1,0 +1,17 @@
+package com.example.demo.controller;
+
+import com.example.demo.exception.InvalidException;
+
+public class CommonException {
+	
+	public void checkName(String name) {
+		if(name.length() < 3)
+			throw new InvalidException("name should be of 3 characters");
+	}
+	public void checkCity(String city) {
+		if(city.length() > 20)
+			throw new InvalidException("city should have max  20 characters");
+	}
+	
+
+}

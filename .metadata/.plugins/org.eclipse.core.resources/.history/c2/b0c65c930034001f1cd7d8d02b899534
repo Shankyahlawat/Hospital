@@ -1,0 +1,29 @@
+// for doctors
+curl --location 'http://localhost:8080/api/doctors' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+  "name": "Shashank",
+  "city": "Noida",
+  "email": "johndoe@example.com",
+  "phoneNumber": "1234567890",
+  "speciality": "Orthopaedic",
+  "id": "4"
+ 
+  
+}'
+
+
+// for patient
+curl --location 'http://localhost:8080/api/patients' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+  "name": "Jane01fghjk",
+  "city": "Noida",
+  "email": "janedoe@example.com",
+  "phoneNumber": "0987654321",
+  "symptom": "Back Pain",
+  "id": "2"
+}'
+
+//for suggestions
+curl --location 'http://localhost:8080/api/suggestions?patientId=4'

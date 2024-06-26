@@ -1,0 +1,12 @@
+package com.example.demo.controller;
+
+import com.example.demo.exception.InvalidException;
+
+public class CommonException {
+	
+	public void nameCheck(String name) {
+		if(name.length() < 3)
+			throw new InvalidException("name should be of 3 characters");
+	}
+
+}

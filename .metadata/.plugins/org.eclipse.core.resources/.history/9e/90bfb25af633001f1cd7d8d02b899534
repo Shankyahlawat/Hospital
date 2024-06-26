@@ -1,0 +1,57 @@
+package com.example.demo.repository;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import org.springframework.stereotype.Repository;
+
+import com.example.demo.entity.Doctor;
+import com.example.demo.exception.InvalidException;
+
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
+
+@Repository
+public class DoctorRepository1 {
+	
+	 @PersistenceContext
+	    private EntityManager entityManager;
+	
+	
+
+
+	public List<Doctor> findDoctorsByCityAndSpeciality(String city, String speciality) {
+		// Create a map to store specialties and their corresponding symptoms
+        Map<String, List<String>> specialitySymptomMap = new HashMap<>();
+
+        // Populate the map with specialties and symptoms
+        List<String> orthopaedicSymptoms = new ArrayList<>();
+        orthopaedicSymptoms.add("Arthritis");
+        orthopaedicSymptoms.add("Back Pain");
+        orthopaedicSymptoms.add("Tissue injuries");
+        specialitySymptomMap.put("Orthopaedic", orthopaedicSymptoms);
+
+        List<String> gynecologySymptoms = new ArrayList<>();
+        gynecologySymptoms.add("Dysmenorrhea");
+        specialitySymptomMap.put("Gynecology", gynecologySymptoms);
+
+        List<String> dermatologySymptoms = new ArrayList<>();
+        dermatologySymptoms.add("Skin infection");
+        dermatologySymptoms.add("Skin burn");
+        specialitySymptomMap.put("Dermatology", dermatologySymptoms);
+		List<Doctor> abc = entityManager.createQuery(
+                "SELECT d FROM Doctor d WHERE d.city = :city", Doctor.class)
+                .setParameter("city", city)
+                .getResultList();
+		if(abc == null || abc.size() < 1)
+			throw new InvalidException("We are still waiting to expand to your location");
+		if()
+		
+		return abc;
+	}
+	
+	
+	}
+

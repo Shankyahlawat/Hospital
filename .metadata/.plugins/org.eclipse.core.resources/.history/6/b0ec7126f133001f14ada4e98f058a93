@@ -1,0 +1,29 @@
+package com.example.demo.repository;
+
+import java.util.List;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.example.demo.entity.Doctor;
+
+import jakarta.persistence.PersistenceContext;
+
+public abstract class DoctorRepository1 implements JpaRepository<Doctor, Long>{
+	@Autowired
+    private SessionFactory sessionFactory;
+	
+	Session session = sessionFactory.openSession();
+	Session session = sessionFactory.openSession();
+
+
+	public List<Doctor> findDoctorsByCityAndSpeciality(String city, String speciality) {
+		
+		return null;
+	}
+	
+	
+	}
+

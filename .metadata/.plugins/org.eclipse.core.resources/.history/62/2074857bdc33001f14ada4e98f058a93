@@ -1,0 +1,5 @@
+package om.example.demo.controller;
+
+public class DoctorController {
+
+}

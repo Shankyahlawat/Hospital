@@ -1,0 +1,7 @@
+package com.example.demo.exception;
+
+public class InvalidSpecialityException extends RuntimeException {
+    public InvalidSpecialityException(String message) {
+        super(message);
+    }
+}

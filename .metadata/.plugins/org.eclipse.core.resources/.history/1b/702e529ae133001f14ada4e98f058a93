@@ -1,0 +1,8 @@
+package com.example.demo.exception;
+
+public class InvalidException {
+	 public InvalidCityException(String message) {
+	        super(message);
+	    }
+
+}

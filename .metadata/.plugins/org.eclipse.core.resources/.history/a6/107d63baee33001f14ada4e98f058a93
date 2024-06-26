@@ -1,0 +1,20 @@
+package com.example.demo.repository;
+
+import java.util.List;
+
+import org.hibernate.Session;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.example.demo.entity.Doctor;
+
+public abstract class DoctorRepository1 implements JpaRepository<Doctor, Long>{
+
+	public List<Doctor> findDoctorsByCityAndSpeciality(String city, String speciality) {
+		Object sessionFactory;
+		Session session = ((Object) sessionFactory).openSession();
+		return null;
+	}
+	
+	
+	}
+
